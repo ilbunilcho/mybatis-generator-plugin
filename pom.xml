@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>ilbunilcho</groupId>
+    <artifactId>mybatis-generator-plugin</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>mybatis-generator-plugin</name>
+    <description></description>
+    <url>https://github.com/ilbunilcho/mybatis-generator-plugin</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <downloadSources>false</downloadSources>
+        <downloadJavadocs>false</downloadJavadocs>
+
+        <mybatis.generator.overwrite>true</mybatis.generator.overwrite>
+        <mybatis.generator.verbose>true</mybatis.generator.verbose>
+        <mybatis.generator.includeCompileDependencies>true</mybatis.generator.includeCompileDependencies>
+        <mybatis.generator.includeAllDependencies>true</mybatis.generator.includeAllDependencies>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-maven-plugin</artifactId>
+            <version>1.3.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.5.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}-${project.version}</finalName>
+
+        <plugins>
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.7</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.xerial</groupId>
+                        <artifactId>sqlite-jdbc</artifactId>
+                        <version>LATEST</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>ilbunilcho</groupId>
+                        <artifactId>mybatis-generator-plugin</artifactId>
+                        <version>0.0.1-SNAPSHOT</version>
+                        <scope>system</scope>
+                        <systemPath>${project.basedir}/lib/mybatis-generator-plugin-0.0.1-SNAPSHOT.jar</systemPath>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+</project>

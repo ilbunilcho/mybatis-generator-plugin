@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <context id="SAMPLE" targetRuntime="MyBatis3" defaultModelType="flat">
+        <plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin"/>
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+        <plugin type="org.mybatis.generator.plugins.MapperAnnotationPlugin"/>
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin">
+            <property name="overwrite" value="true"/>
+        </plugin>
+
+        <plugin type="ilbunilcho.mybatis.generator.plugins.RenameExampleClassPlugin" />
+        <plugin type="ilbunilcho.mybatis.generator.plugins.RenameExampleMethodPlugin" />
+
+        <commentGenerator type="ilbunilcho.mybatis.generator.plugins.CommentGeneratorPlugin">
+            <property name="addRemarkComments" value="true"/>
+            <property name="dateFormat" value="yyyy-MM-dd HH:mm:ss"/>
+        </commentGenerator>
+        <jdbcConnection driverClass="org.sqlite.JDBC"
+                        connectionURL="jdbc:sqlite:sample/chinook.db">
+            <property name="remarksReporting" value="true"/>
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="sample.model" targetProject="./src/test/java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="sample.mapper" targetProject="./src/test/resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="sample.mapper" targetProject="./src/test/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <table tableName="albums"/>
+        <table tableName="artists"/>
+        <table tableName="customers"/>
+        <table tableName="employees"/>
+        <table tableName="genres"/>
+        <table tableName="invoice_items"/>
+        <table tableName="invoices"/>
+        <table tableName="media_types"/>
+        <table tableName="playlist_track"/>
+        <table tableName="playlists"/>
+        <table tableName="tracks"/>
+    </context>
+
+</generatorConfiguration>

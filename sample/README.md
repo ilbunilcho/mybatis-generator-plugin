@@ -1,0 +1,1 @@
+sample sqlite database file downloaded from http://www.sqlitetutorial.net/sqlite-sample-database/
