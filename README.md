@@ -1,6 +1,7 @@
 # mybatis-generator-plugin
 
-Feel free to use this plugins at your work!
+This mbg's plugin help to rename example class and method name of mybatis generator for production use.
+Comment generator makes more detailed comments to your model class.
 
 ## Plugin List
 - RenameExampleClass (XyzExample to XyzSearchCriteria)
